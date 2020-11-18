@@ -43,7 +43,8 @@ const displayIndexListings = async () => {
 
                                                         '<!-- Quick View -->' +
                                                         '<div class="ts_product_quick_view" style="padding-left:7px;padding-right:30px">' +
-                                                            '<a href="#" data-toggle="modal" data-target="#' + 'quickview' + '"><i class="icofont-eye-alt"></i></a>' +
+                                                            '<a href="#" data-toggle="modal" data-target="#' + 'quickview"' + '><i class="icofont-eye-alt" onclick="modal(' + listings[i].ListingID + ', ' + "'"+listings[i].itemName+"'" + ', ' + "'"+listings[i].price+"'" + ', ' + "'"+listings[i].photo+"'" + ', ' + "'"+listings[i].description+"'" + ')"></i></a>' +
+															
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>' +
@@ -53,7 +54,7 @@ const displayIndexListings = async () => {
 		
 		
 		
-		let quickview = document.createElement("div");
+		/*let quickview = document.createElement("div");
 		quickview.innerHTML =  '<div class="modal fade" id="' + 'quickview' + '" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">' + 
         '<div class="modal-dialog modal-lg modal-dialog-centered" role="document">' + 
             '<div class="modal-content">' + 
@@ -124,7 +125,7 @@ const displayIndexListings = async () => {
         '</div>' + 
     '</div>';
 	
-	document.getElementById('quickviews').appendChild(quickview);
+	document.getElementById('quickviews').appendChild(quickview);*/
 	
 	
     }			
