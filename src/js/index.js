@@ -1,6 +1,5 @@
-//import axios from "axios";
-//https://unpkg.com/axios/dist/axios.min.js
-//import axios from './axios.min.js';
+//index.js
+//displays listings on index-1.html
 
 const displayIndexListings = async () => {
 	console.log('TEST');
@@ -38,12 +37,12 @@ const displayIndexListings = async () => {
                                                     '<div class="ts-seller-info mt-3 d-flex align-items-center justify-content-between">' +
                                                         '<!-- Add to cart -->' +
                                                         '<div class="ts_product_add_to_cart" style="padding-left:40px;">' +
-                                                            '<a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icofont-shopping-cart" style=></i></a>' +
+                                                            '<a href="#" onclick="setOrderCookie(' + listings[i].ListingID + '); return false" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icofont-shopping-cart" style=></i></a>' +
                                                         '</div>' +
 
                                                         '<!-- Quick View -->' +
                                                         '<div class="ts_product_quick_view" style="padding-left:7px;padding-right:30px">' +
-                                                            '<a href="#" data-toggle="modal" data-target="#' + 'quickview"' + '><i class="icofont-eye-alt" onclick="modal(' + listings[i].ListingID + ', ' + "'"+listings[i].itemName+"'" + ', ' + "'"+listings[i].price+"'" + ', ' + "'"+listings[i].photo+"'" + ', ' + "'"+listings[i].description+"'" + ')"></i></a>' +
+                                                            '<a href="#" onclick="modal(' + listings[i].ListingID + ', ' + "'"+listings[i].itemName+"'" + ', ' + "'"+listings[i].price+"'" + ', ' + "'"+listings[i].photo+"'" + ', ' + "'"+listings[i].description+"'" + ')" data-toggle="modal" data-target="#' + 'quickview"' + '><i class="icofont-eye-alt"></i></a>' +
 															
                                                         '</div>' +
                                                     '</div>' +

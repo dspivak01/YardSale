@@ -294,11 +294,10 @@
                                     <img src="img/bg-img/user.jpg" alt="">
                                 </div>
                                 <ul class="user-meta-dropdown">
-                                    <li class="user-title"><span>Hello,</span> Lim Sarah</li>
+                                    <li class="user-title"><span>Hello, </span><span id="usernamedropdown"></span></li>
                                     <li><a href="my-account.html">My Account</a></li>
                                     <li><a href="order-list.html">Orders List</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="login.html"><i class="icofont-logout"></i> Logout</a></li>
+                                    <li><a href="login.html" onclick="signOut()"><i class="icofont-logout"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -343,7 +342,8 @@
                 </div>
                 <div class="col-12 col-lg-9">
                     <div class="my-account-content mb-50">
-                        <p>Hello <strong>Lim Sarah</strong> (not <strong>Lim Sarah</strong>? <a href="login.html">Log out</a>)</p>
+					
+                        <p>Hello <strong id="useremail"></strong></p>
                         <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and <a href="account-details.html">edit your password and account details</a>.</p>
                     </div>
                 </div>
@@ -500,6 +500,11 @@
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/default/active.js"></script>
+	
+	<script src="js/amazon-cognito-identity.min.js"></script>  
+	<script src="js/config.js"></script>
+	<script src="js/userinfo.js"></script>
+	
 
 </body>
 

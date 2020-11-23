@@ -333,12 +333,20 @@
                     <div class="login_form mb-50">
                         <h5 class="mb-3">Login</h5>
 
-                        <form action="my-account.html" method="post">
+
+  
+
+
+
+
+                        <form>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="username" placeholder="Email or Username">
+								<input type="text" id="inputUsername" class="form-control"  placeholder="Email address" name="username" required autofocus>
+		
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password" placeholder="Password">
+								 <input type="password" id="inputPassword" class="form-control"  placeholder="Password" name="password" required> 
+                       
                             </div>
                             <div class="form-check">
                                 <div class="custom-control custom-checkbox mb-3 pl-1">
@@ -346,7 +354,8 @@
                                     <label class="custom-control-label" for="customChe">Remember me for this computer</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+							<button type="button" class="btn btn-primary btn-sm" onclick="signInButton()">Sign in</button>
+                            
                         </form>
                         <!-- Forget Password -->
                         <div class="forget_pass mt-15">
@@ -355,30 +364,163 @@
                     </div>
                 </div>
 
+
+
+<script>
+
+   const delay = ms => new Promise(res => setTimeout(res, ms));
+
+  function signInButton() {
+  
+    
+	var authenticationData = {
+        Username : document.getElementById("inputUsername").value,
+        Password : document.getElementById("inputPassword").value,
+    };
+	
+    var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+    
+	var poolData = {
+        UserPoolId : _config.cognito.userPoolId, // Your user pool id here
+        ClientId : _config.cognito.clientId, // Your client id here
+    };
+	
+    var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+	
+    var userData = {
+        Username : document.getElementById("inputUsername").value,
+        Pool : userPool,
+    };
+	
+    var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+    
+	//var success = false;
+	
+	
+	cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: async function (result) {
+			var accessToken = result.getAccessToken().getJwtToken();
+			console.log(accessToken);
+			
+			console.log("redirecting to account page...");
+			await delay(1000);
+			window.location.replace("my-account.html");
+        },
+
+        onFailure: function(err) {
+            alert(err.message || JSON.stringify(err));
+        },
+    });
+	
+	
+  }
+</script>
+
+
+
                 <div class="col-12 col-md-6">
                     <div class="login_form mb-50">
                         <h5 class="mb-3">Register</h5>
 
-                        <form action="my-account.html" method="post">
+                        <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="username" placeholder="Full Name">
+							
+								<input type="personalname" class="form-control" id="personalnameRegister" placeholder="Name" pattern=".*" required>
+                               
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="username" placeholder="Email">
+							
+								<input type="email" class="form-control" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+							
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password" placeholder="Password">
+							
+                                <input type="password" class="form-control" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+								
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password" placeholder="Repeat Password">
+							
+                                <input type="password" class="form-control" id="confirmationpassword" placeholder="Confirm Password" pattern=".*" required>
+								
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Register</button>
+							
+							<button id="mainbutton" class="btn btn-primary btn-sm" type="button" onclick="registerButton()" >Register</button>
+							<p id="registermessage"><p>
+							
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+	
+	
+	
+	<script>
+
+		var username;
+		var password;
+		var personalname;
+		var poolData;
+			
+	  function registerButton() {
+		
+		personalnamename =  document.getElementById("personalnameRegister").value;	
+		username = document.getElementById("emailInputRegister").value;
+		
+		if (document.getElementById("passwordInputRegister").value != document.getElementById("confirmationpassword").value) {
+			alert("Passwords Do Not Match")
+			throw "Passwords Do Not Match"
+		} else {
+			password =  document.getElementById("passwordInputRegister").value;	
+		}
+		
+		poolData = {
+				UserPoolId : _config.cognito.userPoolId, // Your user pool id here
+				ClientId : _config.cognito.clientId // Your client id here
+			};		
+		var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+		var attributeList = [];
+		
+		var dataEmail = {
+			Name : 'email', 
+			Value : username, //get from form field
+		};
+		
+		var dataPersonalName = {
+			Name : 'name', 
+			Value : personalname, //get from form field
+		};
+
+		var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+		var attributePersonalName = new AmazonCognitoIdentity.CognitoUserAttribute(dataPersonalName);
+		
+		
+		attributeList.push(attributeEmail);
+		attributeList.push(attributePersonalName);
+
+		userPool.signUp(username, password, attributeList, null, function(err, result){
+			if (err) {
+				//alert(err.message || JSON.stringify(err));
+				//return;
+			}
+			cognitoUser = result.user;
+			console.log('user name is ' + cognitoUser.getUsername());
+			//change elements of page
+			document.getElementById("registermessage").innerHTML = "Registration Complete! <br /> Check your email for a verification link";
+			
+		});
+	  }
+
+	</script>
+	
+	
+	
+	
+	
+	
+	
     <!-- Login Area End -->
 
     <!-- Footer Area -->
@@ -529,6 +671,13 @@
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/default/active.js"></script>
+	
+	<script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+	<script src="js/amazon-cognito-auth.min.js"></script>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script> 
+	<script src="js/amazon-cognito-identity.min.js"></script>   
+	<script src="js/config.js"></script>
 
 </body>
 

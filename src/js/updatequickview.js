@@ -1,3 +1,6 @@
+//updatequickview.js
+//displays image/info popup on index-1.js
+
 function modal (id, itemName, price, photo, description) {
 	console.log(id);
 	console.log(itemName);
@@ -36,11 +39,8 @@ function modal (id, itemName, price, photo, description) {
                                         '<a href="#">View Full Product Details</a>' + 
                                     '</div>' + 
                                     '<!-- Add to Cart Form -->' + 
-                                    '<form class="cart" method="post">' + 
-                                        '<div class="quantity">' + 
-                                            '<input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">' + 
-                                        '</div>' + 
-                                        '<button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>' + 
+                                    '<form class="cart" method="post">' +  
+                                        '<button type="submit" name="addtocart" value="5" class="cart-submit" onclick="setOrderCookie(' + id + '); return false">Add to cart</button>' + 
                                        
                                     '</form>' + 
                                     '<!-- Share -->' + 
