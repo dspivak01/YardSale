@@ -193,9 +193,9 @@
                         <ul>
                             <li><a href="my-account.html">Dashboard</a></li>
                             <li><a href="order-list.html">Orders</a></li>
-                            <li class="active"><a href="my-listings.html">Listings</a></li> 
+                            <li><a href="my-listings.html">Listings</a></li> 
 							<li><a href="create-listing.html">Create Listing</a></li>
-							<li><a href="delivery.html">Deliveries</a></li>
+							<li class="active"><a href="#">Deliveries</a></li>
                             <li><a href="login.html" onclick="signOut()">Logout</a></li>
                         </ul>
                     </div>
@@ -207,18 +207,23 @@
                                 <table class="table table-bordered mb-0">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Listing</th>
-											<th scope="col">Item</th>
-											<th scope="col">Price</th>
-                                            <th scope="col">Sold</th>
-                                            <th scope="col">Seller</th>
-											<th scope="col">Edit</th>
+                                            <th scope="col">Delivery</th>
+                                            <th scope="col">Buyer</th>
+											<th scope="col">Seller</th>
+											<th scope="col">Pickup Address</th>
+                                            <th scope="col">Delivery Address</th>
+                                            <th scope="col">Pickup Time</th>
+											<th scope="col">Delivery Time</th>
+											<th scope="col">Listing</th>
+											<th scope="col">Order</th>
+											<th scope="col">Fulfilled</th>
+											<th scope="col">Status</th>
+											<th scope="col">Chat</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="listingdisplay">
+                                    <tbody id="deliverydisplay">
                                         
-										<!-- my-listings.js appends orders here -->
+										<!-- delivery.js appends user deliveries here -->
 										
                                     </tbody>
                                 </table>
@@ -394,7 +399,7 @@
 	<script src="js/setordercookie.js"></script>
 	<!-- -->
 	
-	<script src="js/my-listings.js"></script>
+	<script src="js/delivery.js"></script>
 
 </body>
 

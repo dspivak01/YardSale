@@ -104,7 +104,8 @@ const getListingInfoFromID = async (ListingID) => {
 			console.log(product);
 
 			console.log("adding order to db" + product.ListingID);
-			addOrder(product.ListingID, product.sellerID);
+			var orderID = addOrder(product.ListingID, product.sellerID);
+			addDelivery(product.ListingID, await(orderID), product.sellerID);
 
 			break;
 			
@@ -115,7 +116,7 @@ const getListingInfoFromID = async (ListingID) => {
 
 const placeOrder = async () => {
 	var cookieString = getCookieOrders('ListingID');
-	if(cookieString == "") {
+	if(cookieString == "" || !getUserEmail()) {
 		return;
 	}
 	var ids = cookieString.split('|');
@@ -157,12 +158,51 @@ const addOrder = async (ListingID, sellerID) => {
       await axios.post(invokeURL, params);
 	  
 	  console.log("ok");
+	  
+	  return temporaryID;
 
     }catch (err) {
       console.log('An error has occurred: ' + err);
     }
 }
 
+//add delivery to database
+const addDelivery = async (ListingID, OrderID, SellerID) => {
+	console.log("adding delivery");
+	
+    var randomnum = Math.floor(Math.random()*100000)//only for demo purposes
+	var temporaryID = randomnum.toString();
+	
+	var d = new Date();
+	d.setTime(d.getTime());
+	var dateOrdered = d.toUTCString();
+	
+	var name = getUserEmail();
+    // add call to AWS API Gateway add product endpoint here
+    try {
+      const params = {
+        "DeliveryID": temporaryID,
+        "BuyerID": name,
+		"DeliveryAddress": "example address",
+		"DeliveryTime": "N/A",
+		"Fulfilled": false,
+		"PickupAddress": "example address",
+		"PickupTime": "N/A",
+		"ListingID": ListingID,
+		"OrderID": OrderID,
+		"SellerID": SellerID,
+		"Status": 0
+      };
+	  
+	  var invokeURL = 'https://mumznwzp5a.execute-api.us-east-1.amazonaws.com/delivery/delivery/' + temporaryID;
+      await axios.post(invokeURL, params);
+	  
+	  console.log("ok");
+
+    }catch (err) {
+      console.log('An error has occurred: ' + err);
+    }
+}
 
 
 updateOrderOnLoad();

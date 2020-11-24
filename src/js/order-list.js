@@ -55,7 +55,7 @@ const displayUserOrders = async () => {
                                                 userOrders[j].SellerID + 
                                             '</td>' + 
 											'<td>' + 
-                                                '<a href="#" id="' + userOrders[j].OrderID + '" onclick="handleDeleteOrder(' + userOrders[j].OrderID + '); return false" class="btn btn-primary btn-sm m-2">Cancel</a>' + 
+                                                '<a href="#" id="' + userOrders[j].OrderID + '" onclick="handleDeleteOrder(' + userOrders[j].OrderID + '); handleDeleteDelivery(' + await(getDeliveryIdFromOrderId(userOrders[j].OrderID)) + '); return false" class="btn btn-primary btn-sm m-2">Cancel</a>' + 
                                             '</td>';
 											
         document.getElementById("orderdisplay").appendChild(dm);                                
@@ -71,6 +71,38 @@ const handleDeleteOrder = async (OrderID) => {
     }catch (err) {
       console.log('Unable to delete order: ' + err);
     }
+}
+
+//remove delivery when user deletes order
+const handleDeleteDelivery = async (DeliveryID) => {
+    // add call to AWS API Gateway delete product endpoint here
+	console.log("deleting delivery " + DeliveryID);
+    try {
+      await axios.delete('https://mumznwzp5a.execute-api.us-east-1.amazonaws.com/delivery/delivery/' + DeliveryID);
+    }catch (err) {
+      console.log('Unable to delete delivery: ' + err);
+    }
+	console.log("deleted delivery");
+}
+
+const getDeliveryIdFromOrderId = async (OrderID) => {
+	var deliveries;
+	var res;
+    try {
+      res = await axios.get('https://mumznwzp5a.execute-api.us-east-1.amazonaws.com/delivery/delivery');
+	  deliveries = JSON.parse(res.data.body);    
+    } catch (err) {
+      console.log('An error has occurred' + err);
+    }
+	
+	console.log("order-list.js:getDeliveryIdFromOrderId " + deliveries);
+	var i;
+	for(i = 0; i < deliveries.length; i++) {
+		if(deliveries[i].OrderID == OrderID) {
+			console.log(deliveries[i].OrderID);
+			return deliveries[i].DeliveryID;
+		}
+	}
 }
 
 
