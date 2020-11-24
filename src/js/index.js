@@ -16,7 +16,7 @@ const displayIndexListings = async () => {
       console.log('An error has occurred' + err);
     }
 	
-	console.log(listings);
+	console.log("INDEX.JS " + listings);
 	
 	
 	var i;

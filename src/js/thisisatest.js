@@ -1,0 +1,3 @@
+function testUseInAnotherJSFile(){
+	alert('test');
+}

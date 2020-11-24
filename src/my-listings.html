@@ -16,7 +16,7 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="style.css">
-	
+
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-   <!-- Header Area -->
+ <!-- Header Area -->
     <header class="header_area">
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -167,57 +167,68 @@
         </div>
     </header>
     <!-- Header Area End -->
-
-  
     
+    <!-- Breadcumb Area -->
+    <div class="breadcumb_area">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <h5>My Account</h5>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">My Account</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcumb Area -->
 
-    <!-- Quick View Modal Area -->
-	<div id="quickviews">
-	
-	<!-- updatequickview.js appends here -->
-	
-	</div>
-    <!-- Quick View Modal Area -->
-
-    
-
-   
-
-    <!-- Best Rated/Onsale/Top Sale Product Area -->
-    <section class="best_rated_onsale_top_sellares section_padding_100_70">
+    <!-- My Account Area -->
+    <section class="my-account-area section_padding_100_50">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="tabs_area">
-                        <!-- Tabs -->
-                        <ul class="nav nav-tabs" role="tablist" id="product-tab">
-                            <li class="nav-item">
-                                <h4 class="nav-link">New Listings</h4>
-                            </li>
+                <div class="col-12 col-lg-3">
+                    <div class="my-account-navigation mb-50">
+                        <ul>
+                            <li><a href="my-account.html">Dashboard</a></li>
+                            <li><a href="order-list.html">Orders</a></li>
+                            <li class="active"><a href="my-listings.html">Listings</a></li> 
+							<li><a href="create-listing.html">Create Listing</a></li>
+                            <li><a href="login.html" onclick="signOut()">Logout</a></li>
                         </ul>
-						<br />
-						<br />
-                        
-                            
-                        <div class="top_sellers_area">
-                            <div class="row" id="listingdisplay">
-											
-                                <!-- ****************************** -->     
-								<!-- index.js appends listings here -->
-								<!-- ****************************** --> 
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="my-account-content mb-50">
+                        <div class="cart-table">
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Listing</th>
+											<th scope="col">Item</th>
+											<th scope="col">Price</th>
+                                            <th scope="col">Sold</th>
+                                            <th scope="col">Seller</th>
+											<th scope="col">Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listingdisplay">
+                                        
+										<!-- my-listings.js appends orders here -->
 										
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
-   
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Best Rated/Onsale/Top Sale Product Area -->
-
-  
+    <!-- My Account Area -->
 
     <!-- Footer Area -->
     <footer class="footer_area section_padding_100_0">
@@ -372,20 +383,17 @@
 	<script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
 	<!-- -->
 	
-	
 	<!-- Include for user authentication / getting user email -->
 	<script src="js/amazon-cognito-identity.min.js"></script>  
 	<script src="js/config.js"></script>
 	<script src="js/userinfo.js"></script>
-	<!--  --->
+	<!--  -->
 	
 	<!-- Display items in top right shopping cart -->
 	<script src="js/setordercookie.js"></script>
 	<!-- -->
 	
-	<script src="js/index.js"></script>
-	<script src="js/updatequickview.js"></script>
-
+	<script src="js/my-listings.js"></script>
 
 </body>
 

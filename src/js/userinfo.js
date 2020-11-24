@@ -24,7 +24,12 @@ var data = {
 					return;
 				}
 				console.log(result);
-				document.getElementById("usernamedropdown").innerHTML = result[2].getValue();	
+				if( document.getElementById("usernamedropdown") ) {
+					document.getElementById("usernamedropdown").innerHTML = result[2].getValue();	
+				}
+				if(document.getElementById("useremail")) {
+					document.getElementById("useremail").innerHTML = result[2].getValue();
+				}
 				console.log("username: " + result[2].getValue());
 				name = result[2].getValue();
 				//return name;
@@ -43,15 +48,24 @@ var data = {
 	function signOut(){
 	    if (cognitoUser != null) {
 		  name="";
-          cognitoUser.signOut();	  
+          cognitoUser.signOut();	
+		  deleteCookie();		  
         }
 	}
 	
 	window.onload = function(){
+		//testUseInAnotherJSFile();
 		updateUsernameDisplay();
 		if(document.getElementById("useremail")) {
 			document.getElementById("useremail").innerHTML = name;
 		}
+	}
+	
+	
+	function getUserEmail() {
+		updateUsernameDisplay();
+		console.log("userinfo.js:getUserEmail() " + name);
+		return name;
 	}
 	
 	

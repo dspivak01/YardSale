@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Bigshop | Responsive E-commerce Template</title>
+    <title>YardSale</title>
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -18,12 +18,6 @@
     <link rel="stylesheet" href="style.css">
 	
 	
-	
-	
-	<!-- Put this before the js so it can use Axios-->
-	<script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
-	<!-- Get listings-->
-	<script src="/js/testing.js"></script>
 
 </head>
 
@@ -36,7 +30,7 @@
         </div>
     </div>
 
-    <!-- Header Area -->
+  <!-- Header Area -->
     <header class="header_area">
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -44,8 +38,8 @@
                 <div class="row h-100 align-items-center">
                     <div class="col-6">
                         <div class="welcome-note">
-                            <span class="popover--text" data-toggle="popover" data-content="Welcome to Bigshop ecommerce template."><i class="icofont-info-square"></i></span>
-                            <span class="text">Welcome to Bigshop ecommerce template.</span>
+                            <span class="popover--text" data-toggle="popover" data-content="Welcome to YardSale"><i class="icofont-info-square"></i></span>
+                            <span class="text"></span>
                         </div>
                     </div>
                     <div class="col-6">
@@ -88,7 +82,7 @@
                     <nav class="classy-navbar" id="bigshopNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt="logo"></a>
+                        <a href="index-1.html" class="nav-brand"><img src="img/core-img/logo.png" alt="logo"></a>
 
                         <!-- Toggler -->
                         <div class="classy-navbar-toggler">
@@ -105,122 +99,21 @@
                             <!-- Nav -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Home</a>
+                                    <li><a href="index-1.html">Home</a></li>
+                                    <li><a href="shop-list-no-sidebar.html">Shop</a>
+                                        
+                                    <li><a href="#">Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="index-1.html">Home - 1</a></li>
-                                            <li><a href="index-2.html">Home - 2</a></li>
-                                            <li><a href="index-3.html">Home - 3</a></li>
+                                            <li><a href="login.html">Login/Register</a></li>
+											<li><a href="my-account.html">My Account</a></li>
+                                            <li><a href="order-list.html">My Orders</a></li>
+                                            <li><a href="my-listings.html">My Listings</a></li>
+											<li><a href="create-listing.html">Create Listing</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Shop</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Shop Grid</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop-grid-left-sidebar.html">Shop Grid Left Sidebar</a></li>
-                                                    <li><a href="shop-grid-right-sidebar.html">Shop Grid Right Sidebar</a></li>
-                                                    <li><a href="shop-grid-top-sidebar.html">Shop Grid Top Sidebar</a></li>
-                                                    <li><a href="shop-grid-no-sidebar.html">Shop Grid No Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Shop List</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
-                                                    <li><a href="shop-list-top-sidebar.html">Shop List Top Sidebar</a></li>
-                                                    <li><a href="shop-list-no-sidebar.html">Shop List No Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="product-details.html">Single Product</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="#">Checkout</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="checkout-1.html">Login</a></li>
-                                                    <li><a href="checkout-2.html">Billing</a></li>
-                                                    <li><a href="checkout-3.html">Shipping Method</a></li>
-                                                    <li><a href="checkout-4.html">Payment Method</a></li>
-                                                    <li><a href="checkout-5.html">Review</a></li>
-                                                    <li><a href="checkout-complate.html">Complate</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Account Page</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="my-account.html">- Dashboard</a></li>
-                                                    <li><a href="order-list.html">- Orders</a></li>
-                                                    <li><a href="downloads.html">- Downloads</a></li>
-                                                    <li><a href="addresses.html">- Addresses</a></li>
-                                                    <li><a href="account-details.html">- Account Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="compare.html">Compare</a></li>
-                                        </ul>
                                     </li>
-                                    <li><a href="#">Pages</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="about-us.html">- About Us</a></li>
-                                                <li><a href="faq.html">- FAQ</a></li>
-                                                <li><a href="contact.html">- Contact</a></li>
-                                                <li><a href="login.html">- Login &amp; Register</a></li>
-                                                <li><a href="404.html">- 404</a></li>
-                                                <li><a href="500.html">- 500</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="my-account.html">- Dashboard</a></li>
-                                                <li><a href="order-list.html">- Orders</a></li>
-                                                <li><a href="downloads.html">- Downloads</a></li>
-                                                <li><a href="addresses.html">- Addresses</a></li>
-                                                <li><a href="account-details.html">- Account Details</a></li>
-                                                <li><a href="coming-soon.html">- Coming Soon</a></li>
-                                            </ul>
-                                            <div class="single-mega cn-col-2">
-                                                <div class="megamenu-slides owl-carousel">
-                                                    <a href="shop-grid-left-sidebar.html">
-                                                        <img src="img/bg-img/mega-slide-2.jpg" alt="">
-                                                    </a>
-                                                    <a href="shop-list-left-sidebar.html">
-                                                        <img src="img/bg-img/mega-slide-1.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">Blog</a>
-                                        <ul class="dropdown">
-                                            <li><a href="blog-with-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog-with-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="blog-with-no-sidebar.html">Blog No Sidebar</a></li>
-                                            <li><a href="single-blog.html">Single Blog</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Elements</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="accordian.html">- Accordions</a></li>
-                                                <li><a href="alerts.html">- Alerts</a></li>
-                                                <li><a href="badges.html">- Badges</a></li>
-                                                <li><a href="blockquotes.html">- Blockquotes</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="breadcrumb.html">- Breadcrumbs</a></li>
-                                                <li><a href="buttons.html">- Buttons</a></li>
-                                                <li><a href="forms.html">- Forms</a></li>
-                                                <li><a href="gallery.html">- Gallery</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="heading.html">- Headings</a></li>
-                                                <li><a href="icon-fontawesome.html">- Icon FontAwesome</a></li>
-                                                <li><a href="icon-icofont.html">- Icon Ico Font</a></li>
-                                                <li><a href="labels.html">- Labels</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="modals.html">- Modals</a></li>
-                                                <li><a href="pagination.html">- Pagination</a></li>
-                                                <li><a href="progress-bars.html">- Progress Bars</a></li>
-                                                <li><a href="tables.html">- Tables</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                    
+                                    
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
@@ -236,63 +129,24 @@
                                     <input type="search" class="form-control" placeholder="Search">
                                     <input type="submit" class="d-none" value="Send">
                                 </div>
-                            </div>
-
-                            <!-- Wishlist -->
-                            <div class="wishlist-area">
-                                <a href="wishlist.html" class="wishlist-btn"><i class="icofont-heart"></i></a>
-                            </div>
+                            </div>   
 
                             <!-- Cart -->
                             <div class="cart-area">
-                                <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span></div>
+                                <div class="cart--btn"><i class="icofont-cart"></i> <span id="cart_quantity" class="cart_quantity"></span></div>
 
                                 <!-- Cart Dropdown Content -->
                                 <div class="cart-dropdown-content">
-                                    <ul class="cart-list">
-                                        <li>
-                                            <div class="cart-item-desc">
-                                                <a href="#" class="image">
-                                                    <img src="img/product-img/top-1.png" class="cart-thumb" alt="">
-                                                </a>
-                                                <div>
-                                                    <a href="#">Kid's Fashion</a>
-                                                    <p>1 x - <span class="price">$32.99</span></p>
-                                                </div>
-                                            </div>
-                                            <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
-                                        </li>
-                                        <li>
-                                            <div class="cart-item-desc">
-                                                <a href="#" class="image">
-                                                    <img src="img/product-img/best-4.png" class="cart-thumb" alt="">
-                                                </a>
-                                                <div>
-                                                    <a href="#">Headphone</a>
-                                                    <p>2x - <span class="price">$49.99</span></p>
-                                                </div>
-                                            </div>
-                                            <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
-                                        </li>
+                                    <ul class="cart-list" id="cart-list">
+                                        
                                     </ul>
                                     <div class="cart-pricing my-4">
                                         <ul>
-                                            <li>
-                                                <span>Sub Total:</span>
-                                                <span>$822.96</span>
-                                            </li>
-                                            <li>
-                                                <span>Shipping:</span>
-                                                <span>$30.00</span>
-                                            </li>
-                                            <li>
-                                                <span>Total:</span>
-                                                <span>$856.63</span>
-                                            </li>
+                                          
                                         </ul>
                                     </div>
                                     <div class="cart-box">
-                                        <a href="checkout-1.html" class="btn btn-primary d-block">Checkout</a>
+                                        <a href="checkout-5.html" class="btn btn-primary d-block">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -303,11 +157,10 @@
                                     <img src="img/bg-img/user.jpg" alt="">
                                 </div>
                                 <ul class="user-meta-dropdown">
-                                    <li class="user-title"><span>Hello,</span> Lim Sarah</li>
+                                    <li class="user-title"><span>Hello, </span><span id="usernamedropdown"></span></li>
                                     <li><a href="my-account.html">My Account</a></li>
                                     <li><a href="order-list.html">Orders List</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="login.html"><i class="icofont-logout"></i> Logout</a></li>
+                                    <li><a href="login.html" onclick="signOut()"><i class="icofont-logout"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -319,75 +172,11 @@
     <!-- Header Area End -->
 
     <!-- Quick View Modal Area -->
-    <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="modal-body">
-                    <div class="quickview_body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-lg-5">
-                                    <div class="quickview_pro_img">
-                                        <img class="first_img" src="img/product-img/new-1-back.png" alt="">
-                                        <img class="hover_img" src="img/product-img/new-1.png" alt="">
-                                        <!-- Product Badge -->
-                                        <div class="product_badge">
-                                            <span class="badge-new">New</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-7">
-                                    <div class="quickview_pro_des">
-                                        <h4 class="title">Quick View Modal Area</h4>
-                                        <div class="top_seller_product_rating mb-15">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                        <h5 class="price">$120.99 <span>$130</span></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia expedita quibusdam aspernatur, sapiente consectetur accusantium perspiciatis praesentium eligendi, in fugiat?</p>
-                                        <a href="#">View Full Product Details</a>
-                                    </div>
-                                    <!-- Add to Cart Form -->
-                                    <form class="cart" method="post">
-                                        <div class="quantity">
-                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
-                                        </div>
-                                        <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
-                                        <!-- Wishlist -->
-                                        <div class="modal_pro_wishlist">
-                                            <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                        </div>
-                                        <!-- Compare -->
-                                        <div class="modal_pro_compare">
-                                            <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                        </div>
-                                    </form>
-                                    <!-- Share -->
-                                    <div class="share_wf mt-30">
-                                        <p>Share with friends</p>
-                                        <div class="_icon">
-                                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="quickviews">
+	
+	<!-- updatequickview.js appends here -->
+	
+	</div>
     <!-- Quick View Modal Area -->
 
     <!-- Breadcumb Area -->
@@ -415,17 +204,17 @@
                     <div class="shop_top_sidebar_area d-flex flex-wrap align-items-center justify-content-between">
                         <div class="view_area d-flex">
                             <div class="grid_view">
-                                <a href="shop-grid-left-sidebar.html" data-toggle="tooltip" data-placement="top" title="Grid View"><i class="icofont-layout"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="Grid View"><i class="icofont-layout"></i></a>
                             </div>
                             <div class="list_view ml-3">
-                                <a href="shop-list-left-sidebar.html" data-toggle="tooltip" data-placement="top" title="List View"><i class="icofont-listine-dots"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="List View"><i class="icofont-listine-dots"></i></a>
                             </div>
                         </div>
                         <select class="small right">
-                            <option selected>Short by Popularity</option>
-                            <option value="1">Short by Newest</option>
-                            <option value="2">Short by Sales</option>
-                            <option value="3">Short by Ratings</option>
+                            <option selected>Sort by Newest</option>
+                            <option value="1">Sort by Newest</option>
+                            <option value="2">Sort by Sales</option>
+                            <option value="3">Sort by Ratings</option>
                         </select>
                     </div>
 
@@ -629,6 +418,26 @@
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/default/active.js"></script>
+	
+		
+	<!-- Put this before the js so it can use Axios-->
+	<script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
+	
+	<!-- Include for user authentication / getting user email -->
+	<script src="js/amazon-cognito-identity.min.js"></script>  
+	<script src="js/config.js"></script>
+	<script src="js/userinfo.js"></script>
+	<!--  --->
+	
+	<!-- Display items in top right shopping cart -->
+	<script src="js/setordercookie.js"></script>
+	<!-- -->
+	
+	<!-- Get listings-->
+	<script src="js/testing.js"></script>
+	
+	<!-- quick view -->
+	<script src="js/updatequickview.js"></script>
 
 </body>
 

@@ -1,6 +1,8 @@
 //setordercookie.js
 //sets cookie with listing IDs when user clicks on "add to cart" icon
 
+var cartQuantity = 0;
+
 function setOrderCookie(ListingID) {
   var d = new Date();
   d.setTime(d.getTime() + (2*24*60*60*1000));
@@ -21,7 +23,7 @@ function setOrderCookie(ListingID) {
 	  var cookieContent = getCookie('ListingID') + ListingID + "|";
 	  document.cookie = "ListingID" + "=" + cookieContent + ";" + expires + ";path=/";
   }
-  alert(getCookie('ListingID'));
+  //alert(getCookie('ListingID'));
   console.log(getCookie('ListingID'));
   
   updateCart(ListingID);
@@ -94,13 +96,17 @@ const updateCart = async (ListingID) => {
         '<span class="dropdown-product-remove" onclick="removeProduct(' + ListingID + ')"><i class="icofont-bin"></i></span>';
 	
 		document.getElementById("cart-list").appendChild(dm);
+		cartQuantity++;
+		document.getElementById("cart_quantity").innerHTML = cartQuantity;
 	}
 	
 }
 
 //updates cart display with the listings stored in the ListingID cookie
 //should be called when page is refreshed
+
 function updateCartOnLoad(){
+	console.log("updateCartOnLoad()");
 	var cookieString = getCookie('ListingID');
 	if(cookieString == "") {
 		return;
@@ -110,6 +116,7 @@ function updateCartOnLoad(){
 	for(i = 0; i < ids.length; i++) {
 		updateCart(ids[i]);
 	}
+	document.getElementById("cart_quantity").innerHTML = cartQuantity;
 }
 
 //removes product from cart
@@ -120,6 +127,15 @@ function removeProduct(ListingID) {
 	var expires = "expires="+ d.toUTCString();
 	document.cookie = "ListingID" + "=" + cookieString + ";" + expires + ";path=/";
 	document.getElementById("cart-list").removeChild(document.getElementById(ListingID));
+	cartQuantity--;
+	document.getElementById("cart_quantity").innerHTML = cartQuantity;
+}
+
+function deleteCookie() {
+  document.cookie = 'ListingID' +'=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+  cartQuantity = 0;
+  document.getElementById("cart_quantity").innerHTML = cartQuantity;
+  console.log("logout delete cookie");
 }
 
 updateCartOnLoad();

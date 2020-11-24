@@ -17,7 +17,7 @@ const foo = async () => {
       console.log('An error has occurred' + err);
     }
 	
-	console.log(listings);
+	console.log("TESTING.JS " + listings);
 	
 	
 	var i;
@@ -35,27 +35,19 @@ const foo = async () => {
                                             '<span>New</span>'+
                                         '</div>'+
 
-                                        '<!-- Wishlist -->'+
-                                        '<div class="product_wishlist">'+
-                                            '<a href="wishlist.html"><i class="icofont-heart"></i></a>'+
-                                        '</div>'+
-
-                                        '<!-- Compare -->'+
-                                        '<div class="product_compare">'+
-                                            '<a href="compare.html"><i class="icofont-exchange"></i></a>'+
-                                        '</div>'+
+                                        
                                     '</div>'+
 
                                     '<!-- Product Description -->'+
                                     '<div class="product_description">'+
                                         '<!-- Add to cart -->'+
                                         '<div class="product_add_to_cart">'+
-                                            '<a href="#"><i class="icofont-shopping-cart"></i> Add to Cart</a>'+
+                                            '<a href="#" onclick="setOrderCookie(' + listings[i].ListingID + '); return false"><i class="icofont-shopping-cart"></i> Add to Cart</a>'+
                                         '</div>'+
 
                                         '<!-- Quick View -->'+
                                         '<div class="product_quick_view">'+
-                                            '<a href="#" data-toggle="modal" data-target="#quickview"><i class="icofont-eye-alt"></i> Quick View</a>'+
+                                            '<a href="#" onclick="modal(' + listings[i].ListingID + ', ' + "'"+listings[i].itemName+"'" + ', ' + "'"+listings[i].price+"'" + ', ' + "'"+listings[i].photo+"'" + ', ' + "'"+listings[i].description+"'" + ')" data-toggle="modal" data-target="#' + 'quickview"' + '><i class="icofont-eye-alt"></i> Quick View</a>'+
                                         '</div>'+
 
                                         '<p class="brand_name">Top</p>'+

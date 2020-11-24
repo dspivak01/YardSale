@@ -124,6 +124,8 @@ const placeOrder = async () => {
 		getListingInfoFromID(ids[i]);
 		//console.log("PLACEORDER " + test);
 	}
+	document.getElementById("placeorderbutton").innerHTML = "Order Placed";
+	deleteCookie();
 }
 
 
@@ -140,12 +142,12 @@ const addOrder = async (ListingID, sellerID) => {
 	d.setTime(d.getTime());
 	var dateOrdered = d.toUTCString();
 	
-	
+	var name = getUserEmail();
     // add call to AWS API Gateway add product endpoint here
     try {
       const params = {
         "OrderID": temporaryID,
-        "BuyerID": "BuyerID_temp",
+        "BuyerID": name,
 		"Date": dateOrdered,
 		"ListingID": ListingID,
 		"SellerID": sellerID
